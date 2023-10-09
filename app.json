@@ -1,27 +1,69 @@
 {
   "expo": {
+    "extra": {
+      "expoPush": {
+        "projectId": "FallDetectionApp"
+      }
+    },
     "name": "FallDetectionApp",
     "slug": "FallDetectionApp",
     "version": "1.0.0",
     "orientation": "portrait",
+    "notification": {
+      "sound": "./assets/alert-sound.mp3"
+    },
+    "permissions": [
+      "NOTIFICATIONS",
+      "SYSTEM_BRIGHTNESS",
+      "SMS"
+    ],
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#ffffff",
+      "permissions": [
+        "accelerometer",
+        "background-fetch"
+      ]
     },
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "permissions": {
+        "allowNotifications": true
+      },
+      "supportsTablet": true,
+      "infoPlist": {
+        "UIBackgroundModes": [
+          "audio",
+          "location",
+          "fetch",
+          "remote-notification",
+          "sms"
+        ],
+        "NSMotionUsageDescription": "We require access to the accelerometer in order to provide motion-based features and functionality within the app. This includes detecting device movement, orientation, and gestures to enable interactive and immersive experiences for our users.",
+        "NSNotificationsUsageDescription": "We need to send you notifications to keep you informed about important updates and events.",
+        "NSSMSUsageDescription": "For emergency.",
+        "NSContactsUsageDescription": "Accesul la contacte este necesar pentru trimiterea de SMS-uri.",
+        "NSAppTransportSecurity": {
+          "NSAllowsArbitraryLoads": true
+        }
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+    "useNextNotificationsApi": true,
+    "permissions": [
+    "READ_EXTERNAL_STORAGE",
+    "WRITE_EXTERNAL_STORAGE",
+    "MEDIA_LIBRARY"
+  ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
